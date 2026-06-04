@@ -195,7 +195,7 @@ async def _bg_refresh_ranges():
                     _ranges_cache["fetching"] = False
         except Exception:
             pass
-        await asyncio.sleep(360)
+        await asyncio.sleep(300)
 
 # ==================== CHECK IF USER IS ADMIN ====================
 
@@ -994,7 +994,7 @@ async def show_app_selection(update, context):
     context.user_data.pop("top_ranges_by_app", None)
 
     cache_age = _time.monotonic() - _ranges_cache["updated_at"]
-    if _ranges_cache["data"] and cache_age < 390:
+    if _ranges_cache["data"] and cache_age < 300:
         top_ranges_by_app = _ranges_cache["data"]
         context.user_data["top_ranges_by_app"] = top_ranges_by_app
         buttons = build_app_buttons_from_cache(top_ranges_by_app)
@@ -3181,7 +3181,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif data == "back_to_apps":
         import time as _time
         cache_age = _time.monotonic() - _ranges_cache["updated_at"]
-        if _ranges_cache["data"] and cache_age < 390:
+        if _ranges_cache["data"] and cache_age < 300:
             top_ranges_by_app = _ranges_cache["data"]
         else:
             top_ranges_by_app, err = await fetch_top55_ranges_by_app()
