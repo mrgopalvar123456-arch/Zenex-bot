@@ -3293,7 +3293,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         country_label = cty_info["label"]
         country_ranges = cty_info["ranges"]
 
-        available_ranges = country_ranges[:35]
+        available_ranges = country_ranges[:50]
         selected_range = random.choice(available_ranges)
 
         try:
