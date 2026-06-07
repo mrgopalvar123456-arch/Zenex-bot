@@ -24,7 +24,7 @@ except ImportError:
 
 # ==================== CONFIG SECTION ====================
 
-BOT_TOKEN = "8788535469:AAEkwM4HVlq68t3XhS8AEKQUw6cJh-6PNBo"
+BOT_TOKEN = "8788535469:AAG4mTnCNpBTdX0maY0BCTvEjfH1hFoceZc"
 API_KEY = "ZNX_IQ52ED851U09ZAZL062U26GL"  # জেনেক্স এপিআই কী
 BASE_URL = "https://zenexnetwork.com"      # জেনেক্স এপিআই ডোমেন
 USER_DATA_FILE = "users.json"
