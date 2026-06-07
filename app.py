@@ -25,8 +25,8 @@ except ImportError:
 # ==================== CONFIG SECTION ====================
 
 BOT_TOKEN = "8788535469:AAEkwM4HVlq68t3XhS8AEKQUw6cJh-6PNBo"
-API_KEY = "ZNX_IQ52ED851U09ZAZL062U26GL"  # জেনেক্স এপিআই কী
-BASE_URL = "https://api.zenexnetwork.com"      # জেনেক্স এপিআই ডোমেন
+API_KEY = "MURAD_920E47039411AB1DD899DC2D"  # জেনেক্স এপিআই কী
+BASE_URL = "https://fastxotp.com"      # জেনেক্স এপিআই ডোমেন
 USER_DATA_FILE = "users.json"
 PAID_SMS_FILE = "paid_sms.json"
 STATS_FILE = "user_stats.json"
@@ -910,7 +910,7 @@ async def fetch_top55_ranges_by_app():
     for attempt in range(2):
         try:
             r = await client_async.get(
-                f"{base_url}/api/v1/active-ranges",
+                f"{base_url}/api/liveaccess",
                 headers={"mapikey": api_key},
                 timeout=httpx.Timeout(connect=4.0, read=10.0, write=4.0, pool=4.0)
             )
@@ -1108,7 +1108,7 @@ async def monitor_loop(app):
     while True:
         try:
             api_key, base_url = get_api_credentials()
-            r = await client_async.get(f"{base_url}/api/v1/numsuccess/info", headers={"mapikey": api_key})
+            r = await client_async.get(f"{base_url}/api/otps", headers={"mapikey": api_key})
             res = r.json()
             if "data" in res and "otps" in res["data"]:
                 otps = res["data"]["otps"]
@@ -1239,7 +1239,7 @@ async def fetch_number_async(range_str):
     try:
         api_key, base_url = get_api_credentials()
         r = await client_async.post(
-            f"{base_url}/api/v1/getnum",
+            f"{base_url}/api/getnum",
             json={"range": range_str, "is_national": True, "remove_plus": False},
             headers={"mapikey": api_key}
         )
