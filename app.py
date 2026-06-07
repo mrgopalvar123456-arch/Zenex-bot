@@ -22,7 +22,7 @@ except ImportError:
 
 # ==================== CONFIG SECTION ====================
 
-BOT_TOKEN = "8788535469:AAEkwM4HVlq68t3XhS8AEKQUw6cJh-6PNBo"
+BOT_TOKEN = "8788535469:AAHOedfhG2Z7692b1hf6qbm80Ob9YBH2kls"
 API_KEY = "MURAD_920E47039411AB1DD899DC2D"  # FastXOTP এপিআই কী
 BASE_URL = "https://fastxotp.com"           # FastXOTP এপিআই ডোমেন
 USER_DATA_FILE = "users.json"
