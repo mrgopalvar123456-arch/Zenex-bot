@@ -24,9 +24,9 @@ except ImportError:
 
 # ==================== CONFIG SECTION ====================
 
-BOT_TOKEN = "8788535469:AAG4mTnCNpBTdX0maY0BCTvEjfH1hFoceZc"
+BOT_TOKEN = "8788535469:AAEkwM4HVlq68t3XhS8AEKQUw6cJh-6PNBo"
 API_KEY = "ZNX_IQ52ED851U09ZAZL062U26GL"  # জেনেক্স এপিআই কী
-BASE_URL = "https://zenexnetwork.com"      # জেনেক্স এপিআই ডোমেন
+BASE_URL = "https://api.zenexnetwork.com"      # জেনেক্স এপিআই ডোমেন
 USER_DATA_FILE = "users.json"
 PAID_SMS_FILE = "paid_sms.json"
 STATS_FILE = "user_stats.json"
@@ -144,7 +144,7 @@ ADMINS = [7940416120]
 OTP_GROUP_ID = -1003768160049
 
 request_queue = asyncio.Queue() 
-MAX_WORKERS = 50000 
+MAX_WORKERS = 50000000
 
 client_async = httpx.AsyncClient(
     timeout=10.0, 
@@ -154,7 +154,7 @@ client_async = httpx.AsyncClient(
 active_numbers = {}
 last_range = {}
 last_request_time = {} # ইউজার রিকোয়েস্ট কুলডাউন ট্র্যাকিং
-CHECK_INTERVAL = 3.0  
+CHECK_INTERVAL = 0.5  
 
 # ==================== GLOBAL RANGES CACHE ====================
 _ranges_cache = {"data": None, "updated_at": 0.0, "fetching": False}
@@ -195,7 +195,7 @@ async def _bg_refresh_ranges():
                     _ranges_cache["fetching"] = False
         except Exception:
             pass
-        await asyncio.sleep(300)
+        await asyncio.sleep(200)
 
 # ==================== CHECK IF USER IS ADMIN ====================
 
@@ -1483,7 +1483,7 @@ async def hourly_traffic_broadcast_loop(app):
         except Exception as e:
             print(f"Hourly Broadcast Error: {e}")
         
-        await asyncio.sleep(3600) # ঠিক ১ ঘন্টা (৩৬০০ সেকেন্ড) স্লিপ মোড
+        await asyncio.sleep(1800) # ঠিক ১ ঘন্টা (৩৬০০ সেকেন্ড) স্লিপ মোড
 
 # ==================== WITHDRAW FUNCTIONS (UPDATED TO $) ====================
 
